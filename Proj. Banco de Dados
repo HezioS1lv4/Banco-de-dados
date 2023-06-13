@@ -33,3 +33,50 @@ Telefone varchar(10),
 Email char,
 Especialidade char
 )
+
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+create table Paciente(
+idPaciente int not null primary key,
+Nome varchar(20),
+Telefone varchar(10),
+Email varchar(30),
+dataNascimento date,
+cpf varchar(14),
+idExames int,
+idConvenios int
+);
+
+create table Exames(
+idExames int not null primary key,
+Exame varchar(20),
+Descricao varchar,
+valor double
+);
+
+create table Convenios(
+idConvenios int not null primary key,
+Convenio char,
+taxaCoparticacao double
+);
+
+create table Medicos(
+idMedicos int not null primary key,
+Nome char,
+CRM varchar(10),
+Telefone varchar(10),
+Email varchar,
+Especialidade varchar
+);
+
+alter table Paciente
+add constraint fk_idExames foreign key (idExames)
+references Exames (idExames);
+
+alter table Paciente
+add constraint fk_idConvenios foreign key (idConvenios)
+references Convenios (idConvenios);
+
+
