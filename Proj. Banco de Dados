@@ -1,0 +1,35 @@
+create database examesLabotoriais;
+use examesLabotoriais;
+
+create table Paciente(
+idPaciente int not null primary key,
+Nome varchar(20),
+Telefone varchar(10),
+Email char,
+dataNascimento date,
+cpf varchar(14),
+idExame int,
+idConvenios int
+);
+
+create table Exames(
+idExame int not null primary key,
+Exame char,
+Descricao char,
+valor double
+);
+
+create table Convenios(
+idConvenios int not null primary key,
+Convenio char,
+taxaCoparticacao double
+);
+
+create table Medicos(
+idMedicos int not null primary key,
+Nome char,
+CRM varchar(10),
+Telefone varchar(10),
+Email char,
+Especialidade char
+)
